@@ -4,11 +4,14 @@ LoggyInny::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
+root :to => "sessions#index"
 
   ########################
   # SESSIONS RESOURCE
   ########################
+  get '/login', to: 'sessions#new', as: :sessions
+  post '/login', to: 'sessions#create'
+  delete '/logout' => 'sessions#destroy', as: :log_out
 
 
   ########################
